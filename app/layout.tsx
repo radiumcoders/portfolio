@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
 import "./globals.css";
+import Conainer from "@/components/core/container";
+import Navbar from "@/components/core/navbar";
 
-const outfit = Outfit({subsets:['latin'],variable:'--font-sans'});
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,9 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={outfit.variable}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen dark`}
       >
-        {children}
+        <Conainer className="flex flex-col">
+          <Navbar />
+          {children}
+        </Conainer>
       </body>
     </html>
   );
